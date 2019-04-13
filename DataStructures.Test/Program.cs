@@ -1,5 +1,6 @@
 ﻿using DataStructures.Implementation.LinkedList;
 using System;
+using System.Collections.Generic;
 
 namespace DataStructures.Test
 {
@@ -7,36 +8,33 @@ namespace DataStructures.Test
     {
         static void Main(string[] args)
         {
-            SingleLinkedList<int> singleLinkedList = new SingleLinkedList<int>();
-            singleLinkedList.AddFront(10);
-            singleLinkedList.AddFront(20);
-            singleLinkedList.AddFront(30);
-            singleLinkedList.InsertAfter(singleLinkedList.Find(20), 50);
-            singleLinkedList.InsertAfter(singleLinkedList.Find(20), 40);
-            singleLinkedList.InsertAfter(singleLinkedList.Find(30), 70);
-            //var finded = singleLinkedList.Find(40);
-            Console.WriteLine(singleLinkedList.First?.Value);
-            Console.WriteLine(singleLinkedList.First?.Next?.Value);
-            Console.WriteLine(singleLinkedList.Find(40)?.Value);
-            Console.WriteLine(singleLinkedList.Find(90)?.Value);
-            Console.WriteLine(singleLinkedList.Find(10)?.Value);
-            Console.WriteLine(singleLinkedList.Find(10)?.Next?.Value);
-            Console.WriteLine(singleLinkedList.Contains(70));
-            Console.WriteLine(singleLinkedList.Contains(10));
-            Console.WriteLine(singleLinkedList.Contains(90));
-            singleLinkedList.PrintList();
-            Console.WriteLine(singleLinkedList.Remove(30));
-            Console.WriteLine(singleLinkedList.Find(30)?.Value);
-            singleLinkedList.PrintList();
-            Console.WriteLine(singleLinkedList.Remove(50));
-            Console.WriteLine(singleLinkedList.Find(50)?.Value);
-            singleLinkedList.PrintList();
-            Console.WriteLine(singleLinkedList.Remove(70));
-            Console.WriteLine(singleLinkedList.Remove(20));
-            Console.WriteLine(singleLinkedList.Remove(10));
-            singleLinkedList.PrintList();
-            Console.WriteLine(singleLinkedList.Remove(40));
-            singleLinkedList.PrintList();            
+            #region SingleLinkedList
+            //SingleLinkedList<int> singleLinkedList = new SingleLinkedList<int>();            
+            //singleLinkedList.AddFirst(10);          
+            //singleLinkedList.AddFirst(20);          
+            //singleLinkedList.InsertAfter(singleLinkedList.Find(10), 50);
+            //singleLinkedList.Remove(20);
+            //singleLinkedList.PrintList();
+            #endregion
+
+            #region DoubleLinkedList
+            DoubleLinkedList<int> doubleLinkedList = new DoubleLinkedList<int>();
+
+            doubleLinkedList.AddLast(40);
+            doubleLinkedList.AddLast(50);
+            doubleLinkedList.AddLast(10);
+            doubleLinkedList.AddLast(60);
+            doubleLinkedList.AddFirst(10);
+            doubleLinkedList.AddFirst(20);
+            doubleLinkedList.AddFirst(30);
+            doubleLinkedList.AddLast(70);
+            //console.writeline(doublelinkedlist.find(10).value);
+            //Console.WriteLine(doubleLinkedList.FindLast(10).Value);
+            Console.WriteLine(doubleLinkedList.Count);
+            Console.WriteLine(doubleLinkedList.Contains(100));
+            //doubleLinkedList.PrintList();
+            #endregion
+            
             Console.ReadKey();
         }
     }

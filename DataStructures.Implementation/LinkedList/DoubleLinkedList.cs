@@ -10,20 +10,73 @@ namespace DataStructures.Implementation.LinkedList
             Last = null;
         }
         public LinkedListNode<T> First { get; set; }
-        public LinkedListNode<T> Last { get; set; }
-
-        public void AddFront(T value)
+        public LinkedListNode<T> Last
         {
-            LinkedListNode<T> node = new LinkedListNode<T>(value);
-            node.Next = First;
-            First = node;
+            get
+            {
+                var current = First;
+
+                while (current?.Next != null)
+                    current = current.Next;
+
+                return current;
+            }
+            set { }
+        }
+        public int Count
+        {
+            get
+            {
+                if (First == null)
+                    return 0;
+
+                var current = First;
+                var count = 1;
+                while (current?.Next != null)
+                {
+                    current = current.Next;
+                    count++;
+                }
+
+                return count;
+            }
         }
 
-        public void InsertAfter(LinkedListNode<T> node, T value)
+        public void AddFirst(T value)
         {
-            var newNode = new LinkedListNode<T>(value);
-            newNode.Next = node.Next;
-            node.Next = newNode;
+            LinkedListNode<T> node = new LinkedListNode<T>(value);
+            if (First != null)
+                First.Previous = node;
+            node.Next = First;
+            First = node;
+
+        }
+
+        public void AddLast(T value)
+        {
+            LinkedListNode<T> node = new LinkedListNode<T>(value);
+            if (First == null)
+            {
+                First = node;
+                return;
+            }
+            node.Previous = Last;
+            Last.Next = node;
+
+        }
+
+        public void AddAfter(LinkedListNode<T> node, T value)
+        {
+            //var newNode = new LinkedListNode<T>(value);
+            //newNode.Next = node.Next;
+            //node.Next = newNode;
+        }
+
+        public void AddBefore(LinkedListNode<T> node, T value)
+        {
+            //var newNode = new LinkedListNode<T>(value);
+            //newNode.Next = node.Next;
+            //node.Next = newNode;
         }
 
         public LinkedListNode<T> Find(T value)
@@ -32,6 +85,16 @@ namespace DataStructures.Implementation.LinkedList
 
             while (current != null && !current.Value.Equals(value))
                 current = current.Next;
+
+            return current;
+        }
+
+        public LinkedListNode<T> FindLast(T value)
+        {
+            LinkedListNode<T> current = Last;
+
+            while (current != null && !current.Value.Equals(value))
+                current = current.Previous;
 
             return current;
         }
@@ -51,14 +114,18 @@ namespace DataStructures.Implementation.LinkedList
 
         public bool Contains(T value)
         {
-            var current = First;
-
-            while (current != null)
+            var currentStart = First;
+            var currentEnd = Last;
+            while (currentStart != null)
             {
-                if (current.Value.Equals(value))
+                if (currentStart.Value.Equals(value) || currentEnd.Value.Equals(value))
                     return true;
                 else
-                    current = current.Next;
+                {
+                    currentStart = currentStart.Next;                 
+                    currentEnd = currentEnd.Previous;
+                    //TODO optymize
+                }
             }
 
             return false;
@@ -80,6 +147,16 @@ namespace DataStructures.Implementation.LinkedList
             }
 
             return true;
+        }
+
+        public void RemoveFirst()
+        {
+
+        }
+
+        public void RemoveLast()
+        {
+
         }
 
         public void PrintList()

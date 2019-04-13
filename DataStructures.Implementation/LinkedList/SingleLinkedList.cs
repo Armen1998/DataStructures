@@ -10,14 +10,14 @@ namespace DataStructures.Implementation.LinkedList
         }
         public LinkedListNode<T> First { get; set; }
 
-        public void AddFront(T value)
+        public void AddFirst(T value)
         {
             LinkedListNode<T> node = new LinkedListNode<T>(value);
             node.Next = First;
             First = node;
         }
 
-        public void InsertAfter(LinkedListNode<T> node, T value)
+        public void AddAfter(LinkedListNode<T> node, T value)
         {
             var newNode = new LinkedListNode<T>(value);
             newNode.Next = node.Next;
