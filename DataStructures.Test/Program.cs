@@ -9,12 +9,12 @@ namespace DataStructures.Test
         static void Main(string[] args)
         {
             #region SingleLinkedList
-            //SingleLinkedList<int> singleLinkedList = new SingleLinkedList<int>();            
-            //singleLinkedList.AddFirst(10);          
-            //singleLinkedList.AddFirst(20);          
-            //singleLinkedList.InsertAfter(singleLinkedList.Find(10), 50);
+            //SingleLinkedList<int> singleLinkedList = new SingleLinkedList<int>();
+            //singleLinkedList.AddFirst(10);
+            //singleLinkedList.AddFirst(20);
+            //singleLinkedList.AddAfter(singleLinkedList.Find(10), 50);
             //singleLinkedList.Remove(20);
-            //singleLinkedList.PrintList();
+            //singleLinkedList.PrintList();            
             #endregion
 
             #region DoubleLinkedList
@@ -28,11 +28,13 @@ namespace DataStructures.Test
             doubleLinkedList.AddFirst(20);
             doubleLinkedList.AddFirst(30);
             doubleLinkedList.AddLast(70);
-            //console.writeline(doublelinkedlist.find(10).value);
-            //Console.WriteLine(doubleLinkedList.FindLast(10).Value);
-            Console.WriteLine(doubleLinkedList.Count);
-            Console.WriteLine(doubleLinkedList.Contains(100));
-            //doubleLinkedList.PrintList();
+            //doubleLinkedList.RemoveLast();
+            //doubleLinkedList.RemoveFirst();            
+            //Console.WriteLine(doubleLinkedList.Last.Value);   
+            doubleLinkedList.AddAfter(doubleLinkedList.Find(0), 100);
+            doubleLinkedList.PrintList();
+
+            //Console.WriteLine(doubleLinkedList.Find(70).Value);
             #endregion
             
             Console.ReadKey();

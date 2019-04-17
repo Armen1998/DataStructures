@@ -4,7 +4,8 @@ using System.Text;
 
 namespace DataStructures.Implementation.LinkedList
 {
-    public class LinkedListNode<T>
+    public class LinkedListNode<T> 
+        where T : struct
     {
         public LinkedListNode<T> Next { get; set; } 
         public LinkedListNode<T> Previous { get; set; }

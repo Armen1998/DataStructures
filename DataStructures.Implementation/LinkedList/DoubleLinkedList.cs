@@ -3,6 +3,7 @@
 namespace DataStructures.Implementation.LinkedList
 {
     public class DoubleLinkedList<T>
+        where T : struct
     {
         public DoubleLinkedList()
         {
@@ -23,6 +24,7 @@ namespace DataStructures.Implementation.LinkedList
             }
             set { }
         }
+
         public int Count
         {
             get
@@ -49,7 +51,6 @@ namespace DataStructures.Implementation.LinkedList
                 First.Previous = node;
             node.Next = First;
             First = node;
-
         }
 
         public void AddLast(T value)
@@ -67,9 +68,18 @@ namespace DataStructures.Implementation.LinkedList
 
         public void AddAfter(LinkedListNode<T> node, T value)
         {
-            //var newNode = new LinkedListNode<T>(value);
-            //newNode.Next = node.Next;
-            //node.Next = newNode;
+            if (node == null)
+                return;
+
+            var newNode = new LinkedListNode<T>(value);
+            newNode.Previous = node;
+            newNode.Next = node.Next;
+            if (node?.Next?.Previous != null)
+            {
+                node.Next.Previous = newNode;
+            }
+            node.Next = newNode;
+            
         }
 
         public void AddBefore(LinkedListNode<T> node, T value)
@@ -99,19 +109,6 @@ namespace DataStructures.Implementation.LinkedList
             return current;
         }
 
-        private LinkedListNode<T> FindPrevious(T value)
-        {
-            if (First == null || First.Value.Equals(value) || !Contains(value))
-                return null;
-
-            var current = First;
-
-            while (current.Next != null && !current.Next.Value.Equals(value))
-                current = current.Next;
-
-            return current;
-        }
-
         public bool Contains(T value)
         {
             var currentStart = First;
@@ -122,7 +119,7 @@ namespace DataStructures.Implementation.LinkedList
                     return true;
                 else
                 {
-                    currentStart = currentStart.Next;                 
+                    currentStart = currentStart.Next;
                     currentEnd = currentEnd.Previous;
                     //TODO optymize
                 }
@@ -132,31 +129,48 @@ namespace DataStructures.Implementation.LinkedList
         }
 
         public bool Remove(T value)
-        {
-            if (!Contains(value))
+        {          
+            var removedNode = Find(value);
+
+            if (removedNode == null)
                 return false;
 
-            if (First.Value.Equals(value))
+            if (removedNode == First)
             {
-                First = First?.Next;
-            }
-            else
-            {
-                var prevNode = FindPrevious(value);
-                prevNode.Next = prevNode?.Next?.Next;
+                RemoveFirst();
+                return true;
             }
 
+            if (removedNode == Last)
+            {
+                RemoveLast();
+                return true;
+            }
+
+            removedNode.Previous.Next = removedNode.Next;
+            removedNode.Next.Previous = removedNode.Previous;
+            removedNode.Next = null;
+            removedNode.Previous = null;
             return true;
         }
 
         public void RemoveFirst()
         {
-
+            First = First?.Next;
+            if (First != null)
+                First.Previous = null;
         }
 
         public void RemoveLast()
         {
+            if (Last?.Next == null && Last?.Previous == null)
+            {
+                First = null;
+                return;
+            }
 
+            if (Last?.Previous != null)
+                Last.Previous.Next = null;
         }
 
         public void PrintList()

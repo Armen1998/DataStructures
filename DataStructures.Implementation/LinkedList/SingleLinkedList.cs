@@ -3,6 +3,7 @@
 namespace DataStructures.Implementation.LinkedList
 {
     public class SingleLinkedList<T>
+        where T : struct
     {
         public SingleLinkedList()
         {
@@ -38,7 +39,7 @@ namespace DataStructures.Implementation.LinkedList
         {
             if (First == null || First.Value.Equals(value) || !Contains(value))
                 return null;
-         
+
             var current = First;
 
             while (current.Next != null && !current.Next.Value.Equals(value))
@@ -68,7 +69,7 @@ namespace DataStructures.Implementation.LinkedList
                 return false;
 
             if (First.Value.Equals(value))
-            {                
+            {
                 First = First?.Next;
             }
             else
@@ -76,7 +77,7 @@ namespace DataStructures.Implementation.LinkedList
                 var prevNode = FindPrevious(value);
                 prevNode.Next = prevNode?.Next?.Next;
             }
-           
+
             return true;
         }
 
@@ -88,7 +89,7 @@ namespace DataStructures.Implementation.LinkedList
             {
                 Console.Write(current.Value + "  ");
                 current = current.Next;
-            }            
+            }
         }
     }
 }
