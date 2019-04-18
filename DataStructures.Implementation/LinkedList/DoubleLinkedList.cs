@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DataStructures.Implementation.LinkedList
+namespace DataStructures.LinkedList
 {
     public class DoubleLinkedList<T>
         where T : struct
