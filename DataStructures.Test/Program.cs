@@ -18,23 +18,23 @@ namespace DataStructures.Test
             #endregion
 
             #region DoubleLinkedList
-            DoubleLinkedList<int> doubleLinkedList = new DoubleLinkedList<int>();
+            //DoubleLinkedList<int> doubleLinkedList = new DoubleLinkedList<int>();
 
-            doubleLinkedList.AddLast(40);
-            doubleLinkedList.AddLast(50);
-            doubleLinkedList.AddLast(10);
-            doubleLinkedList.AddLast(60);
-            doubleLinkedList.AddFirst(10);
-            doubleLinkedList.AddFirst(20);
-            doubleLinkedList.AddFirst(30);
-            doubleLinkedList.AddLast(70);
+            //doubleLinkedList.AddLast(40);
+            //doubleLinkedList.AddLast(50);
+            //doubleLinkedList.AddLast(10);
+            //doubleLinkedList.AddLast(60);
+            //doubleLinkedList.AddFirst(10);
+            //doubleLinkedList.AddFirst(20);
+            //doubleLinkedList.AddLast(70);
             //doubleLinkedList.RemoveLast();
-            //doubleLinkedList.RemoveFirst();            
-            //Console.WriteLine(doubleLinkedList.Last.Value);   
-            doubleLinkedList.AddAfter(doubleLinkedList.Find(0), 100);
-            doubleLinkedList.PrintList();
-
-            //Console.WriteLine(doubleLinkedList.Find(70).Value);
+            //doubleLinkedList.RemoveFirst();
+            //doubleLinkedList.AddAfter(doubleLinkedList.Find(70), 100);
+            //doubleLinkedList.AddBefore(doubleLinkedList.Find(100), 99);
+            //doubleLinkedList.AddBefore(doubleLinkedList.First, 99);
+            //doubleLinkedList.AddBefore(doubleLinkedList.Last, 99);
+            //doubleLinkedList.PrintList();
+            //Console.WriteLine(doubleLinkedList.Contains(99));           
             #endregion
             
             Console.ReadKey();
