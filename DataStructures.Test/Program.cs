@@ -1,6 +1,5 @@
-﻿using DataStructures.Implementation.LinkedList;
+﻿using DataStructures.Stack;
 using System;
-using System.Collections.Generic;
 
 namespace DataStructures.Test
 {
@@ -36,7 +35,25 @@ namespace DataStructures.Test
             //doubleLinkedList.PrintList();
             //Console.WriteLine(doubleLinkedList.Contains(99));           
             #endregion
-            
+
+            #region Stack            
+            Stack<int> stack = new Stack<int>();
+            stack.Push(1);
+            stack.Push(2);
+            stack.Push(3);
+            stack.Push(4);
+            stack.Push(5);
+            stack.Pop();
+            stack.Pop();
+            Console.WriteLine(stack.Peek());
+            Console.WriteLine(stack.Count);
+            Console.WriteLine(stack.Contains(5));
+            Console.WriteLine(stack.Contains(1));
+            stack.Clear();
+            Console.WriteLine(stack.Count);
+            #endregion
+            //System.Collections.Stack stack2 = new System.Collections.Stack();
+            //stack2.
             Console.ReadKey();
         }
     }
