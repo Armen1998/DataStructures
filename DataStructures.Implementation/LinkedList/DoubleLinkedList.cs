@@ -190,6 +190,11 @@ namespace DataStructures.LinkedList
                 Last.Previous.Next = null;
         }
 
+        public void Clear()
+        {
+            First = null;
+        }
+
         public void PrintList()
         {
             var current = First;
