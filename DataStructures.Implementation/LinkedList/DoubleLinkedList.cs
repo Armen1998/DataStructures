@@ -49,6 +49,7 @@ namespace DataStructures.Implementation.LinkedList
             LinkedListNode<T> node = new LinkedListNode<T>(value);
             if (First != null)
                 First.Previous = node;
+
             node.Next = First;
             First = node;
         }
@@ -61,6 +62,7 @@ namespace DataStructures.Implementation.LinkedList
                 First = node;
                 return;
             }
+
             node.Previous = Last;
             Last.Next = node;
 
@@ -71,22 +73,36 @@ namespace DataStructures.Implementation.LinkedList
             if (node == null)
                 return;
 
-            var newNode = new LinkedListNode<T>(value);
-            newNode.Previous = node;
-            newNode.Next = node.Next;
-            if (node?.Next?.Previous != null)
+            var newNode = new LinkedListNode<T>(value)
             {
+                Previous = node,
+                Next = node.Next
+            };
+
+            if (node.Next != null)
                 node.Next.Previous = newNode;
-            }
+
             node.Next = newNode;
-            
         }
 
         public void AddBefore(LinkedListNode<T> node, T value)
         {
-            //var newNode = new LinkedListNode<T>(value);
-            //newNode.Next = node.Next;
-            //node.Next = newNode;
+            if (node == null)
+                return;
+
+            var newNode = new LinkedListNode<T>(value)
+            {
+                Next = node,
+                Previous = node.Previous
+            };
+
+            if (node.Previous != null)
+                node.Previous.Next = newNode;
+            else
+                First = newNode;
+
+            node.Previous = newNode;
+
         }
 
         public LinkedListNode<T> Find(T value)
@@ -119,9 +135,10 @@ namespace DataStructures.Implementation.LinkedList
                     return true;
                 else
                 {
+                    if (currentStart == currentEnd || currentStart.Next == currentEnd)
+                        return false;
                     currentStart = currentStart.Next;
                     currentEnd = currentEnd.Previous;
-                    //TODO optymize
                 }
             }
 
@@ -129,7 +146,7 @@ namespace DataStructures.Implementation.LinkedList
         }
 
         public bool Remove(T value)
-        {          
+        {
             var removedNode = Find(value);
 
             if (removedNode == null)
