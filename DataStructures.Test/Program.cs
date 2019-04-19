@@ -1,4 +1,5 @@
-﻿using DataStructures.Stack;
+﻿using DataStructures.Queue;
+using DataStructures.Stack;
 using System;
 
 namespace DataStructures.Test
@@ -37,23 +38,39 @@ namespace DataStructures.Test
             #endregion
 
             #region Stack            
-            Stack<int> stack = new Stack<int>();
-            stack.Push(1);
-            stack.Push(2);
-            stack.Push(3);
-            stack.Push(4);
-            stack.Push(5);
-            stack.Pop();
-            stack.Pop();
-            Console.WriteLine(stack.Peek());
-            Console.WriteLine(stack.Count);
-            Console.WriteLine(stack.Contains(5));
-            Console.WriteLine(stack.Contains(1));
-            stack.Clear();
-            Console.WriteLine(stack.Count);
+            //Stack<int> stack = new Stack<int>();
+            //stack.Push(1);
+            //stack.Push(2);
+            //stack.Push(3);
+            //stack.Push(4);
+            //stack.Push(5);
+            //stack.Pop();
+            //stack.Pop();
+            //Console.WriteLine(stack.Peek());
+            //Console.WriteLine(stack.Count);
+            //Console.WriteLine(stack.Contains(5));
+            //Console.WriteLine(stack.Contains(1));
+            //stack.Clear();
+            //Console.WriteLine(stack.Count);            
             #endregion
-            //System.Collections.Stack stack2 = new System.Collections.Stack();
-            //stack2.
+
+            #region Queue
+            //Queue<int> queue = new Queue<int>();
+            //queue.Enqueue(1);
+            //queue.Enqueue(2);
+            //queue.Enqueue(3);
+            //queue.Enqueue(4);
+            //queue.Enqueue(5);
+            //queue.Dequeue();
+            //queue.Dequeue();
+            //Console.WriteLine(queue.Count);
+            //Console.WriteLine(queue.Contains(1));
+            //Console.WriteLine(queue.Contains(3));
+            //Console.WriteLine(queue.Peek());
+            //queue.Clear();
+            //Console.WriteLine(queue.Count);
+            #endregion
+
             Console.ReadKey();
         }
     }
