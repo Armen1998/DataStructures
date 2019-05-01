@@ -5,8 +5,7 @@ using System.Text;
 
 namespace DataStructures.Stack
 {
-    public class Stack<T>
-        where T : struct
+    public class Stack<T>        
     {
         private DoubleLinkedList<T> list;
         public Stack()

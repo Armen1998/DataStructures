@@ -5,8 +5,7 @@ using System.Text;
 
 namespace DataStructures.Queue
 {
-    public class Queue<T> 
-        where T : struct
+    public class Queue<T>    
     {
         private DoubleLinkedList<T> list;
         public Queue()

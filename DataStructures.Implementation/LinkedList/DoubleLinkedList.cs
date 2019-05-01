@@ -2,8 +2,7 @@
 
 namespace DataStructures.LinkedList
 {
-    public class DoubleLinkedList<T>
-        where T : struct
+    public class DoubleLinkedList<T>        
     {
         public DoubleLinkedList()
         {
