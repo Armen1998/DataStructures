@@ -1,6 +1,5 @@
-﻿using DataStructures.Queue;
-using DataStructures.Stack;
-using System;
+﻿using System;
+using System.Collections.Generic;
 
 namespace DataStructures.Test
 {
@@ -71,6 +70,18 @@ namespace DataStructures.Test
             //Console.WriteLine(queue.Count);
             #endregion
 
+            #region HashSet
+            Sets.HashSet<int> hashSet = new Sets.HashSet<int>(new List<int>() { 1, 2, 3, 8, 9, 15, 7, 1 });
+            Sets.HashSet<int> hashSet2 = new Sets.HashSet<int> { 1, 2, 3, 8, 9, 10, 6, 1 };
+            Console.WriteLine(hashSet.Contains(10));
+            hashSet.UnionWith(hashSet2);
+            hashSet.ExceptWith(new List<int>() { 8, 9 });            
+            hashSet.IntersectWith(new List<int> { 3, 8, 9, 10, 6, 1 });
+            Console.WriteLine(hashSet2.IsSupersetOf(new List<int> { 10, 6, 1 }));
+            Console.WriteLine(hashSet2.IsSubsetOf(new List<int> { 1, 2, 3, 8, 9, 10, 6, 11, 12 }));
+            hashSet.Remove(9);
+            Console.WriteLine(hashSet.RemoveWhere(item => item > 5));
+            #endregion
             Console.ReadKey();
         }
     }
