@@ -122,6 +122,7 @@ namespace DataStructures.Test
             binarySearchTree.Insert(-1);
             binarySearchTree.Insert(20);
             binarySearchTree.Insert(19);
+            binarySearchTree.Delete(10);
             binarySearchTree.InOrder(binarySearchTree.Root);
             Console.WriteLine();
             binarySearchTree.InOrderIterative(binarySearchTree.Root);
@@ -134,12 +135,19 @@ namespace DataStructures.Test
             Console.WriteLine();
             binarySearchTree.PostOrderIterative(binarySearchTree.Root);
             Console.WriteLine();
-            Console.WriteLine(binarySearchTree.Height(binarySearchTree.Find(7)));
-
-            ////Console.WriteLine(binarySearchTree.FindMin(binarySearchTree.Root));            
-            ////Console.WriteLine(binarySearchTree.FindMax(binarySearchTree.Root));
-            ////Console.WriteLine(binarySearchTree.Find(21).Value);
-            ////Console.WriteLine(binarySearchTree.Delete(4));
+            binarySearchTree.LeftView(binarySearchTree.Root);
+            Console.WriteLine();
+            binarySearchTree.RightView(binarySearchTree.Root);
+            Console.WriteLine();
+            binarySearchTree.TopView(binarySearchTree.Root);
+            Console.WriteLine();
+            binarySearchTree.BottomView(binarySearchTree.Root);
+            Console.WriteLine();
+            Console.WriteLine(binarySearchTree.Height(binarySearchTree.Find(7)));            
+            Console.WriteLine(binarySearchTree.FindMin(binarySearchTree.Root));            
+            Console.WriteLine(binarySearchTree.FindMax(binarySearchTree.Root));
+            Console.WriteLine(binarySearchTree.Find(21).Value);
+            Console.WriteLine(binarySearchTree.Delete(4));
             #endregion
 
             Console.ReadKey();
